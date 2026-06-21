@@ -1,3 +1,0 @@
-Ersetze diese Datei mit dem echten Logo-Bild (logo.jpg).
-Das Logo-Bild: grüner Hintergrund mit goldenem JP-Monogramm und Nadel.
-Dateiname muss exakt sein: logo.jpg
