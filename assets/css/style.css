@@ -512,6 +512,35 @@ h1, h2, h3, h4 {
 }
 #hero-content.visible .hero-trust { opacity: 1; }
 
+/* ── Hero Static Logo (stays after animation) ── */
+.hero-logo-static {
+  margin: 0 auto 2rem;
+  width: min(160px, 35vw);
+  height: min(160px, 35vw);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 1s var(--ease-luxury), transform 1s var(--ease-luxury);
+}
+#hero-content.visible .hero-logo-static {
+  opacity: 1;
+  transform: scale(1);
+}
+.hero-logo-static img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 1px var(--border-gold),
+    0 0 40px rgba(184, 146, 58, 0.15);
+  transition: box-shadow 0.5s var(--ease-luxury);
+}
+.hero-logo-static img:hover {
+  box-shadow:
+    0 0 0 1px var(--gold),
+    0 0 60px rgba(184, 146, 58, 0.3);
+}
+
 /* ── Scroll Indicator ── */
 .scroll-indicator {
   position: absolute;
