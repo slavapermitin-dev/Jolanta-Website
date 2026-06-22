@@ -381,16 +381,16 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #0D3D22;
+  background: #0d3928;
 }
 
-/* Subtle vignette at edges */
+/* Edge vignette to blend video seamlessly */
 #hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(5, 15, 11, 0.7) 100%);
-  z-index: 0;
+  background: radial-gradient(ellipse 72% 72% at 50% 50%, transparent 52%, #0d3928 100%);
+  z-index: 3;
   pointer-events: none;
 }
 
@@ -402,8 +402,8 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   z-index: 2;
-  background: #0D3D22;
-  transition: opacity 1s var(--ease-luxury);
+  background: #0d3928;
+  transition: opacity 1.4s var(--ease-luxury);
 }
 #hero-video-stage.hidden {
   opacity: 0;
@@ -419,7 +419,7 @@ h1, h2, h3, h4 {
 /* ── Hero Content ── */
 #hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -429,7 +429,7 @@ h1, h2, h3, h4 {
   padding: calc(var(--nav-height) + 1rem) clamp(20px, 5vw, 60px) 4rem;
   width: 100%;
   opacity: 0;
-  transition: opacity 1.2s var(--ease-luxury);
+  transition: opacity 1.4s var(--ease-luxury);
   pointer-events: none;
 }
 #hero-content.visible {
@@ -442,8 +442,8 @@ h1, h2, h3, h4 {
   margin: 0 auto 3rem;
   width: min(460px, 78vmin);
   opacity: 0;
-  transform: scale(0.92);
-  transition: opacity 1.2s var(--ease-luxury), transform 1.4s var(--ease-luxury);
+  transform: scale(0.96);
+  transition: opacity 1.4s var(--ease-luxury), transform 1.6s var(--ease-luxury);
 }
 #hero-content.visible .hero-logo-static {
   opacity: 1;
@@ -465,7 +465,7 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity 0.8s 0.6s var(--ease-luxury), transform 0.8s 0.6s var(--ease-luxury);
+  transition: opacity 0.8s 0.8s var(--ease-luxury), transform 0.8s 0.8s var(--ease-luxury);
 }
 #hero-content.visible .hero-ctas { opacity: 1; transform: translateY(0); }
 
