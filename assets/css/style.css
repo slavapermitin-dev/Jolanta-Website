@@ -275,6 +275,20 @@ h1, h2, h3, h4 {
 .nav-links a:hover { color: var(--gold-light); }
 .nav-links a:hover::after { transform: scaleX(1); }
 
+.nav-link-legal {
+  font-size: 0.62rem !important;
+  color: var(--text-muted) !important;
+  letter-spacing: 0.14em !important;
+  opacity: 0.7;
+}
+.nav-link-legal:hover { color: var(--gold-light) !important; opacity: 1; }
+.nav-legal-sep {
+  width: 1px;
+  height: 14px;
+  background: var(--border-gold);
+  margin: 0 0.2rem;
+}
+
 .nav-cta {
   padding: 0.6rem 1.5rem;
   font-size: 0.68rem;
@@ -396,7 +410,7 @@ h1, h2, h3, h4 {
   pointer-events: none;
 }
 #hero-video {
-  width: min(600px, 90vw);
+  width: min(800px, 90vmin);
   height: auto;
   object-fit: contain;
 }
@@ -514,9 +528,9 @@ h1, h2, h3, h4 {
 
 /* ── Hero Static Logo (stays after animation) ── */
 .hero-logo-static {
-  margin: 0 auto 2rem;
-  width: min(160px, 35vw);
-  height: min(160px, 35vw);
+  margin: 0 auto 2.5rem;
+  width: min(260px, 52vw);
+  height: min(260px, 52vw);
   opacity: 0;
   transform: scale(0.85);
   transition: opacity 1s var(--ease-luxury), transform 1s var(--ease-luxury);
@@ -815,6 +829,15 @@ h1, h2, h3, h4 {
   margin-bottom: 1.2rem;
 }
 .star { color: var(--gold); font-size: 0.8rem; }
+.star-empty { color: var(--border-gold); }
+.review-placeholder-only {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
 .review-text {
   font-family: var(--font-serif);
   font-size: 1.05rem;

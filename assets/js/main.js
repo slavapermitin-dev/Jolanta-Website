@@ -32,18 +32,22 @@
   }
 
   if (heroVideo) {
+    let playbackStarted = false;
+
+    heroVideo.addEventListener('playing', () => { playbackStarted = true; });
+
     heroVideo.addEventListener('ended', function () {
       setTimeout(showHeroContent, 300);
     });
 
     heroVideo.addEventListener('error', showHeroContent);
 
-    // Fallback: if video hasn't started playing within 3s, show content
+    // Fallback: only if playback never started within 4s
     setTimeout(() => {
-      if (heroContent && !heroContent.classList.contains('visible')) {
+      if (!playbackStarted && heroContent && !heroContent.classList.contains('visible')) {
         showHeroContent();
       }
-    }, 3000);
+    }, 4000);
 
     // Try to play; if autoplay is blocked, show content directly
     const playPromise = heroVideo.play();
