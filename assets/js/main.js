@@ -12,20 +12,10 @@
   const navLogo     = document.querySelector('.nav-logo');
 
   function showHeroContent() {
-    // First make the static logo visible so it appears to "settle"
-    // from where the animation ended (center of screen)
-    if (heroContent) heroContent.style.opacity = '0';
+    // Video stays frozen on last frame — just reveal the CTAs on top
     if (heroContent) heroContent.classList.add('visible');
 
-    // Fade out the video stage
-    if (videoStage) videoStage.classList.add('hidden');
-
-    // Fade in the whole hero content
-    if (heroContent) {
-      heroContent.style.opacity = '';
-    }
-
-    // Show nav logo after hero settles
+    // Show nav logo after CTAs appear
     if (navLogo) {
       setTimeout(() => navLogo.classList.add('visible'), 800);
     }
