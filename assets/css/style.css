@@ -375,40 +375,39 @@ h1, h2, h3, h4 {
    HERO
 ═══════════════════════════════════════════════ */
 #hero {
-  position: relative;
-  min-height: 100dvh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: #000;
+  min-height: 100dvh;
+  padding-top: var(--nav-height);
+  background: #0d3928;
 }
 
 /* ── Video Stage ── */
 #hero-video-stage {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: #000;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
 }
 #hero-video {
-  width: 100%;
+  width: auto;
   height: 100%;
-  object-fit: cover;
+  max-height: calc(100dvh - var(--nav-height) - 90px);
+  max-width: 100%;
+  object-fit: contain;
   display: block;
 }
 
-/* ── Hero Content (CTAs only, over frozen video) ── */
+/* ── Hero Content (CTA below video) ── */
 #hero-content {
-  position: absolute;
-  z-index: 4;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: clamp(60px, 10vh, 120px);
+  padding: 1.5rem 1rem 2.5rem;
   opacity: 0;
   transition: opacity 1.2s var(--ease-luxury);
   pointer-events: none;
