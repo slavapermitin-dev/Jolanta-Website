@@ -386,25 +386,27 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  min-height: 100dvh;
+  height: 100dvh;
   padding-top: var(--nav-height);
   background: #0c3525;
+  overflow: hidden;
 }
 
 /* ── Video Stage ── */
 #hero-video-stage {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 0;
   overflow: hidden;
+  /* Height = viewport minus nav minus CTA area (≈90px) */
+  height: calc(100dvh - var(--nav-height) - 90px);
 }
 #hero-video {
-  width: 100%;
+  /* Size by height to preserve 1:1 ratio; never wider than viewport */
   height: 100%;
-  max-width: min(100vw, 100vh - var(--nav-height) - 80px);
-  max-height: calc(100dvh - var(--nav-height) - 80px);
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
   display: block;
 }
@@ -415,7 +417,7 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem 1rem 2.5rem;
+  padding: 1rem 1rem 1.5rem;
   background: #0c3525;
   opacity: 0;
   transition: opacity 1.2s var(--ease-luxury);
