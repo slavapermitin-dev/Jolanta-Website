@@ -486,7 +486,7 @@ h1, h2, h3, h4 {
   transition: background var(--trans-base);
 }
 .service-category:hover {
-  background: rgba(10, 55, 40, 0.8);
+  background: var(--green-mid);
 }
 
 .service-category-icon {
@@ -513,17 +513,18 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
-  padding-bottom: 0.7rem;
-  border-bottom: 1px solid rgba(184, 146, 58, 0.1);
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(184, 146, 58, 0.12);
   transition: border-color var(--trans-base);
 }
 .service-item:last-child { border-bottom: none; padding-bottom: 0; }
 .service-category:hover .service-item { border-color: rgba(184, 146, 58, 0.2); }
 
 .service-name {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--cream-dim);
   flex: 1;
+  line-height: 1.5;
 }
 .service-price {
   font-family: var(--font-serif);
@@ -567,7 +568,7 @@ h1, h2, h3, h4 {
 ═══════════════════════════════════════════════ */
 #arbeiten {
   padding: var(--section-pad) 0;
-  background: var(--green-primary);
+  background: var(--green-deepest);
   position: relative;
 }
 #arbeiten::before {
@@ -689,10 +690,16 @@ h1, h2, h3, h4 {
   border: 1px solid var(--border-gold);
 }
 .review-card {
-  background: var(--green-primary);
+  background: var(--green-deep);
   padding: 2.5rem;
   position: relative;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background var(--trans-base);
 }
+.review-card:hover { background: var(--green-mid); }
 .review-stars {
   display: flex;
   gap: 0.25rem;
@@ -835,8 +842,8 @@ h1, h2, h3, h4 {
 .about-content p {
   color: var(--cream-dim);
   font-size: 0.95rem;
-  line-height: 1.9;
-  margin-bottom: 1.2rem;
+  line-height: 2;
+  margin-bottom: 1.4rem;
   font-weight: 300;
 }
 
@@ -893,11 +900,11 @@ h1, h2, h3, h4 {
 }
 .value-card {
   background: var(--green-deep);
-  padding: 2.5rem;
+  padding: 3rem 2.5rem;
   text-align: center;
   transition: background var(--trans-base);
 }
-.value-card:hover { background: rgba(10, 55, 40, 0.5); }
+.value-card:hover { background: var(--green-mid); }
 .value-icon {
   color: var(--gold);
   margin-bottom: 1.2rem;
@@ -991,9 +998,11 @@ h1, h2, h3, h4 {
 .contact-info-text a:hover { color: var(--gold-light); }
 
 .contact-hours {
-  padding: 1.5rem;
+  padding: 1.5rem 1.8rem;
   border: 1px solid var(--border-gold);
+  border-left: 3px solid var(--gold);
   margin-bottom: 2.5rem;
+  background: rgba(184, 146, 58, 0.03);
 }
 .contact-hours .hours-label {
   font-size: 0.6rem;
@@ -1054,10 +1063,15 @@ h1, h2, h3, h4 {
   background: var(--gold);
   border-color: var(--gold);
   color: var(--green-deepest);
+  box-shadow: 0 4px 24px rgba(184, 146, 58, 0.22);
+  font-weight: 500;
 }
 .contact-cta-btn.primary svg { color: var(--green-deepest); }
 .contact-cta-btn.primary::before { background: var(--gold-light); }
-.contact-cta-btn.primary:hover { color: var(--green-deepest); }
+.contact-cta-btn.primary:hover {
+  color: var(--green-deepest);
+  box-shadow: 0 6px 32px rgba(184, 146, 58, 0.35);
+}
 
 /* ─ Map placeholder ─ */
 .contact-map {
@@ -1125,7 +1139,7 @@ h1, h2, h3, h4 {
 footer {
   background: var(--green-deepest);
   border-top: 1px solid var(--border-gold);
-  padding: 3rem 0 2rem;
+  padding: 4rem 0 2.5rem;
 }
 .footer-inner {
   display: flex;
@@ -1135,10 +1149,11 @@ footer {
   text-align: center;
 }
 .footer-logo img {
-  height: 52px;
-  width: 52px;
+  height: 64px;
+  width: 64px;
   object-fit: contain;
-  margin: 0 auto 0.5rem;
+  margin: 0 auto 0.75rem;
+  opacity: 0.9;
 }
 .footer-brand {
   font-family: var(--font-serif);
@@ -1233,8 +1248,8 @@ footer {
 ═══════════════════════════════════════════════ */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s var(--ease-luxury), transform 0.8s var(--ease-luxury);
+  transform: translateY(24px);
+  transition: opacity 0.9s var(--ease-luxury), transform 0.9s var(--ease-luxury);
 }
 .reveal.revealed {
   opacity: 1;
