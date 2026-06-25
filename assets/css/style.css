@@ -224,11 +224,8 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  opacity: 0;
-  transform: translateY(-8px);
-  transition: opacity 0.6s var(--ease-luxury), transform 0.6s var(--ease-luxury);
+  opacity: 1;
 }
-.nav-logo.visible { opacity: 1; transform: translateY(0); }
 
 .nav-logo img {
   height: 44px;
