@@ -33,7 +33,8 @@
 
   --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-in-luxury: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  --trans-base: 0.4s var(--ease-luxury);
+  --trans-base: 0.25s var(--ease-luxury);
+  --trans-slow: 0.5s var(--ease-luxury);
 }
 
 /* ── Reset & Base ── */
@@ -55,9 +56,15 @@ body {
 }
 
 img { display: block; max-width: 100%; height: auto; }
-a { color: inherit; text-decoration: none; }
+a { color: inherit; text-decoration: none; cursor: pointer; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
 ul { list-style: none; }
+
+/* ── Focus states (accessibility) ── */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 6px; }
@@ -298,6 +305,7 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   transition: var(--trans-base);
   margin-left: 1.5rem;
+  cursor: pointer;
 }
 .nav-cta:hover {
   background: var(--gold);
@@ -483,7 +491,8 @@ h1, h2, h3, h4 {
 .service-category {
   background: var(--green-deep);
   padding: 2.5rem;
-  transition: background var(--trans-base);
+  transition: background var(--trans-slow);
+  cursor: default;
 }
 .service-category:hover {
   background: var(--green-mid);
@@ -616,7 +625,9 @@ h1, h2, h3, h4 {
   background: var(--green-deep);
   overflow: hidden;
   cursor: pointer;
+  transition: opacity var(--trans-base);
 }
+.gallery-card:hover { opacity: 0.92; }
 .gallery-card-inner {
   position: absolute;
   inset: 0;
@@ -882,7 +893,7 @@ h1, h2, h3, h4 {
   font-size: 0.62rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 0.4rem 0.9rem;
+  padding: 0.5rem 1rem;
   border: 1px solid var(--border-gold);
   color: var(--gold-dim);
   transition: var(--trans-base);
@@ -902,7 +913,7 @@ h1, h2, h3, h4 {
   background: var(--green-deep);
   padding: 3rem 2.5rem;
   text-align: center;
-  transition: background var(--trans-base);
+  transition: background var(--trans-slow);
 }
 .value-card:hover { background: var(--green-mid); }
 .value-icon {
@@ -1041,6 +1052,7 @@ h1, h2, h3, h4 {
   transition: var(--trans-base);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 .contact-cta-btn::before {
   content: '';
@@ -1100,7 +1112,8 @@ h1, h2, h3, h4 {
   justify-content: center;
   gap: 1rem;
   text-decoration: none;
-  transition: background var(--trans-base);
+  transition: background var(--trans-slow);
+  cursor: pointer;
 }
 .map-placeholder:hover { background: var(--green-mid); }
 .map-pin {
