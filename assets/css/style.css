@@ -1353,10 +1353,14 @@ footer {
   .about-values { grid-template-columns: repeat(3, 1fr); }
 }
 
-@media (max-width: 768px) {
-  :root { --nav-height: 68px; }
+/* iPad portrait (820px) and below: switch to hamburger nav */
+@media (max-width: 900px) {
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
+}
+
+@media (max-width: 768px) {
+  :root { --nav-height: 68px; }
   #mobile-menu { display: none; }
   #mobile-menu.open { display: flex; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
