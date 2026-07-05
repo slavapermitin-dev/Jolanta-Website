@@ -72,7 +72,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" />
 
   <!-- ── Stylesheet ── -->
-  <link rel="stylesheet" href="assets/css/style.css?v=7" />
+  <link rel="stylesheet" href="assets/css/style.css?v=8" />
 </head>
 <body>
 
@@ -413,16 +413,33 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-category="reparaturen" aria-label="Galerie-Platzhalter: Reparaturen">
-        <div class="gallery-card-inner">
-          <div class="gallery-placeholder-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 8v4l3 3"/>
-            </svg>
-          </div>
-          <span class="gallery-placeholder-label">In Bearbeitung</span>
-          <span class="gallery-placeholder-tag serif">Reparaturen</span>
+      <!-- Jeans-Reparatur -->
+      <div class="gallery-card work-card" data-category="reparaturen"
+           aria-label="Reparatur der Schrittnaht – Fotos ansehen"
+           data-work-title="Reparatur der Schrittnaht"
+           data-work-desc="Die beschädigte Stelle im Schrittbereich wurde sorgfältig repariert und dauerhaft verstärkt. Durch eine präzise Verarbeitung wurden Stabilität und Funktion der Jeans wiederhergestellt, während die Reparatur optisch dezent in das Gesamtbild integriert wurde. Die Originaloptik der Hose bleibt dabei weitestgehend erhalten."
+           data-work-images="assets/images/gallery/AA836858-033A-4302-9BEC-13B352335273.png,assets/images/gallery/IMG_9422.jpeg,assets/images/gallery/IMG_9423.jpeg,assets/images/gallery/IMG_9429.jpeg,assets/images/gallery/IMG_9433.jpeg">
+
+        <!-- Hauptbild: Vorher/Nachher -->
+        <div class="work-main-img">
+          <img src="assets/images/gallery/AA836858-033A-4302-9BEC-13B352335273.png"
+               alt="Jeans Schrittnaht – Vorher und Nachher"
+               loading="lazy">
+        </div>
+
+        <!-- Collage -->
+        <div class="work-collage" aria-hidden="true">
+          <img src="assets/images/gallery/IMG_9422.jpeg" alt="">
+          <img src="assets/images/gallery/IMG_9423.jpeg" alt="">
+          <img src="assets/images/gallery/IMG_9429.jpeg" alt="">
+          <img src="assets/images/gallery/IMG_9433.jpeg" alt="">
+        </div>
+
+        <!-- Info-Leiste -->
+        <div class="work-info">
+          <span class="work-tag">Reparatur</span>
+          <p class="work-title serif">Reparatur der Schrittnaht</p>
+          <span class="work-cta">Alle Fotos ansehen →</span>
         </div>
       </div>
 
