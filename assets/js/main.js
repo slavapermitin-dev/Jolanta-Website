@@ -184,4 +184,94 @@
     });
   });
 
+  /* ── Work Cards: Hover-Collage + Long-Press ────────────────── */
+  document.querySelectorAll('.work-card').forEach(card => {
+    let pressTimer = null;
+
+    // Long-press für Touch (400ms)
+    card.addEventListener('touchstart', () => {
+      pressTimer = setTimeout(() => card.classList.add('touched'), 400);
+    }, { passive: true });
+    card.addEventListener('touchend', () => {
+      clearTimeout(pressTimer);
+      setTimeout(() => card.classList.remove('touched'), 600);
+    });
+    card.addEventListener('touchmove', () => clearTimeout(pressTimer), { passive: true });
+  });
+
+  /* ── Lightbox ────────────────────────────────────────────── */
+  const lightbox   = document.getElementById('work-lightbox');
+  const lbImg      = document.getElementById('lb-img');
+  const lbTitle    = document.getElementById('lb-title');
+  const lbDesc     = document.getElementById('lb-desc');
+  const lbCounter  = document.getElementById('lb-counter');
+  const lbClose    = document.getElementById('lb-close');
+  const lbPrev     = document.getElementById('lb-prev');
+  const lbNext     = document.getElementById('lb-next');
+
+  let lbImages = [], lbIndex = 0;
+
+  function lbOpen(images, index, title, desc) {
+    lbImages = images;
+    lbIndex  = index;
+    lbTitle.textContent = title;
+    lbDesc.textContent  = desc;
+    lbShow();
+    lightbox.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+
+  function lbShow() {
+    lbImg.src = lbImages[lbIndex];
+    lbImg.alt = lbTitle.textContent + ' – Bild ' + (lbIndex + 1);
+    lbCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+    lbPrev.style.visibility = lbImages.length > 1 ? '' : 'hidden';
+    lbNext.style.visibility = lbImages.length > 1 ? '' : 'hidden';
+  }
+
+  function lbClose_() {
+    lightbox.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+    lbImages = []; lbImg.src = '';
+  }
+
+  if (lightbox) {
+    lbClose.addEventListener('click', lbClose_);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) lbClose_(); });
+    lbPrev.addEventListener('click', () => { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; lbShow(); });
+    lbNext.addEventListener('click', () => { lbIndex = (lbIndex + 1) % lbImages.length; lbShow(); });
+
+    // Tastaturnavigation
+    document.addEventListener('keydown', e => {
+      if (lightbox.hasAttribute('hidden')) return;
+      if (e.key === 'Escape')     lbClose_();
+      if (e.key === 'ArrowLeft')  { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; lbShow(); }
+      if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; lbShow(); }
+    });
+
+    // Swipe auf Touch
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) {
+        lbIndex = dx < 0
+          ? (lbIndex + 1) % lbImages.length
+          : (lbIndex - 1 + lbImages.length) % lbImages.length;
+        lbShow();
+      }
+    });
+  }
+
+  // Karten öffnen Lightbox beim Klick
+  document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const imgs  = (card.dataset.workImages || '').split(',').map(s => s.trim()).filter(Boolean);
+      const title = card.dataset.workTitle || '';
+      const desc  = card.dataset.workDesc  || '';
+      if (imgs.length) lbOpen(imgs, 0, title, desc);
+    });
+  });
+
 })();

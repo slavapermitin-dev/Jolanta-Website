@@ -72,7 +72,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" />
 
   <!-- ── Stylesheet ── -->
-  <link rel="stylesheet" href="assets/css/style.css?v=5" />
+  <link rel="stylesheet" href="assets/css/style.css?v=6" />
 </head>
 <body>
 
@@ -374,6 +374,7 @@
     <!-- Filter -->
     <div class="gallery-filter reveal" role="group" aria-label="Galerie-Filter">
       <button class="filter-btn active" data-filter="all">Alle</button>
+      <button class="filter-btn" data-filter="massarbeit">Maßanfertigung</button>
       <button class="filter-btn" data-filter="aenderungen">Änderungen</button>
       <button class="filter-btn" data-filter="reparaturen">Reparaturen</button>
       <button class="filter-btn" data-filter="details">Detailarbeiten</button>
@@ -382,15 +383,33 @@
     <!-- Gallery Grid -->
     <div class="gallery-grid reveal">
 
-      <div class="gallery-card" data-category="aenderungen" aria-label="Galerie-Platzhalter: Änderungen">
-        <div class="gallery-card-inner">
-          <div class="gallery-placeholder-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-            </svg>
-          </div>
-          <span class="gallery-placeholder-label">In Bearbeitung</span>
-          <span class="gallery-placeholder-tag serif">Änderungen</span>
+      <!-- Bademantel – interaktive Karte -->
+      <div class="gallery-card work-card" data-category="massarbeit"
+           aria-label="Maßgeschneiderter Bademantel – Fotos ansehen"
+           data-work-title="Maßgeschneiderter Bademantel"
+           data-work-desc="Maßgeschneiderter Bademantel aus hochwertigem, dunkelblauem Stoff mit dezentem Muster. Ausgestattet mit einem weichen Schalkragen aus Frottee, Bindegürtel und aufgesetzten Taschen. Individuell nach Maß gefertigt und sorgfältig verarbeitet – für eine optimale Passform und hohen Tragekomfort."
+           data-work-images="assets/images/gallery/bademantel/1.jpg,assets/images/gallery/bademantel/2.jpg,assets/images/gallery/bademantel/3.jpg,assets/images/gallery/bademantel/4.jpg,assets/images/gallery/bademantel/5.jpg">
+
+        <!-- Hauptbild -->
+        <div class="work-main-img">
+          <img src="assets/images/gallery/bademantel/1.jpg"
+               alt="Maßgeschneiderter Bademantel – Seitenansicht auf Schneiderpuppe"
+               loading="eager">
+        </div>
+
+        <!-- Collage (erscheint beim Hover / Long Press) -->
+        <div class="work-collage" aria-hidden="true">
+          <img src="assets/images/gallery/bademantel/2.jpg" alt="">
+          <img src="assets/images/gallery/bademantel/3.jpg" alt="">
+          <img src="assets/images/gallery/bademantel/4.jpg" alt="">
+          <img src="assets/images/gallery/bademantel/5.jpg" alt="">
+        </div>
+
+        <!-- Info-Leiste -->
+        <div class="work-info">
+          <span class="work-tag">Maßanfertigung</span>
+          <p class="work-title serif">Maßgeschneiderter Bademantel</p>
+          <span class="work-cta">Alle Fotos ansehen →</span>
         </div>
       </div>
 
@@ -772,6 +791,35 @@
   </div>
 </footer>
 
+
+<!-- ═══════════════════════════════════════════════
+     LIGHTBOX
+════════════════════════════════════════════════ -->
+<div id="work-lightbox" role="dialog" aria-modal="true" aria-label="Bildergalerie" hidden>
+  <button id="lb-close" aria-label="Schließen">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <button id="lb-prev" aria-label="Vorheriges Bild">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+  </button>
+  <button id="lb-next" aria-label="Nächstes Bild">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <polyline points="9 18 15 12 9 6"/>
+    </svg>
+  </button>
+  <div id="lb-img-wrap">
+    <img id="lb-img" src="" alt="">
+  </div>
+  <div id="lb-caption">
+    <p id="lb-title" class="serif"></p>
+    <p id="lb-desc"></p>
+    <span id="lb-counter"></span>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════
      COOKIE BANNER
